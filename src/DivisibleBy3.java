@@ -33,6 +33,7 @@ public class DivisibleBy3 implements ActionListener
 		panel.add(field);
 		
 		button = new JButton("Check");
+		button.addActionListener(this);
 		button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		panel.add(button);
 		
@@ -48,9 +49,7 @@ public class DivisibleBy3 implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
-		String eventName = ae.getActionCommand();
-		if(eventName.equals("Check"))
-		{
+		String eventName = ae.getActionCommand();  
 			if(Integer.parseInt(field.getText()) % 3 != 0)
 			{
 				response.setText(NO);
@@ -59,11 +58,6 @@ public class DivisibleBy3 implements ActionListener
 			{
 				response.setText(YES);
 			}
-		}
-		else
-		{
-			
-		}
 	}
 	
 	private static void runDivisibleBy3()
