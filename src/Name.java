@@ -13,12 +13,19 @@ public class Name implements ActionListener
 	{
 		frame = new JFrame("NAME");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		panel = new JPanel();
+		panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+		
 		label = new JLabel(LABEL);
+		label.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		panel.add(label);
+		
 		button = new JButton("Hide");
 		button.addActionListener(this);
+		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		panel.add(button);
+		
 		frame.setContentPane(panel);
 		frame.pack();
 		frame.setVisible(true);
@@ -45,7 +52,7 @@ public class Name implements ActionListener
 	
 	private static void runName()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(false);
 		Name nameBox = new Name();
 	}
 	

@@ -66,7 +66,7 @@ public class Riddle implements ActionListener
 	
 	private static void runRiddle()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(false);
 		Riddle riddle = new Riddle();
 	}
 	

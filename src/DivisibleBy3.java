@@ -62,7 +62,7 @@ public class DivisibleBy3 implements ActionListener
 	
 	private static void runDivisibleBy3()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(false);
 		DivisibleBy3 divisibleBy3 = new DivisibleBy3();
 	}
 	
@@ -70,11 +70,11 @@ public class DivisibleBy3 implements ActionListener
 	{
 		Runnable run = new Runnable()
 		{
-				@Override
-				public void run()
-				{
-					runDivisibleBy3();
-				}
+			@Override
+			public void run()
+			{
+				runDivisibleBy3();
+			}
 		};
 		javax.swing.SwingUtilities.invokeLater(run);
 	}

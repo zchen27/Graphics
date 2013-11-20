@@ -15,7 +15,7 @@ public class MetricConversion implements ActionListener
 	JLabel response;
 	JComboBox comboBox;
 	
-	public void MetricConversio()
+	public MetricConversion()
 	{
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,7 +40,6 @@ public class MetricConversion implements ActionListener
 		frame.setContentPane(panel);
 		frame.pack();
 		frame.setVisible(true);
-		
 	}
 
 	@Override
@@ -60,7 +59,7 @@ public class MetricConversion implements ActionListener
 	
 	private static void runMetricConversion()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame.setDefaultLookAndFeelDecorated(false);
 		MetricConversion metricConversion = new MetricConversion();
 	}
 	
