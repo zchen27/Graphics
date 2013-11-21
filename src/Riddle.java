@@ -5,8 +5,8 @@ import javax.swing.*;
 
 public class Riddle implements ActionListener
 {
-	final static String QUESTION = "WHAT IS THE DIFFERENCE BETWEEN AN ENGLISH MAJOR AND A LARGE PIZZA?";
-	final static String ANSWER = "A PIZZA CAN FEED A FAMILY OF FOUR";
+	final static String QUESTION = "WHAT IS THE DIFFERENCE BETWEEN A THEORETICAL MATHEMATICS MAJOR AND A LARGE PIZZA?";
+	final static String ANSWER = "A LARGE PIZZA CAN FEED A FAMILY OF FOUR";
 	
 	JFrame frame;
 	JPanel panel;
@@ -66,7 +66,6 @@ public class Riddle implements ActionListener
 	
 	private static void runRiddle()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(false);
 		Riddle riddle = new Riddle();
 	}
 	

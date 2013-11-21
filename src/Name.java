@@ -52,8 +52,7 @@ public class Name implements ActionListener
 	
 	private static void runName()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(false);
-		Name nameBox = new Name();
+		Name name = new Name();
 	}
 	
 	public static void main(String[] args)

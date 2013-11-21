@@ -62,7 +62,6 @@ public class DivisibleBy3 implements ActionListener
 	
 	private static void runDivisibleBy3()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(false);
 		DivisibleBy3 divisibleBy3 = new DivisibleBy3();
 	}
 	

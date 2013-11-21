@@ -59,7 +59,6 @@ public class MetricConversion implements ActionListener
 	
 	private static void runMetricConversion()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(false);
 		MetricConversion metricConversion = new MetricConversion();
 	}
 	
