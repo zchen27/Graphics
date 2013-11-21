@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 import java.util.*;
+import javax.swing.*;
 
 public class Roll implements ActionListener
 {
@@ -12,6 +12,10 @@ public class Roll implements ActionListener
 	JButton roll0;
 	JButton roll1;
 	JButton rollboth;
+	static final String rollFirst = "Roll First Die";
+	static final String rollSecond = "Roll Second Die";
+	static final String rollBoth = "Roll Both Dice";
+	private Color[] backgrounds = {Color.black, Color.blue, Color.cyan, Color.darkGray, Color.gray, Color.green, Color.lightGray, Color.magenta, Color.orange, Color.pink, Color.red, Color.white, Color.yellow};
 	
 	public Roll()
 	{
@@ -25,25 +29,30 @@ public class Roll implements ActionListener
 		
 		die0 = new JLabel(new ImageIcon("die1.gif"));
 		die0.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		die0.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		panel.add(die0);
 		
 		die1 = new JLabel(new ImageIcon("die1.gif"));
 		die1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		die1.setAlignmentX(JLabel.CENTER_ALIGNMENT);
 		panel.add(die1);
 		
-		roll0 = new JButton("Roll First Die");
+		roll0 = new JButton(rollFirst);
+		roll0.addActionListener(this);
 		roll0.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		roll0.setBackground(Color.green);
 		roll0.setForeground(Color.red);
 		panel.add(roll0);
 		
-		roll1 = new JButton("Roll Second Die");
+		roll1 = new JButton(rollSecond);
+		roll1.addActionListener(this);
 		roll1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		roll1.setBackground(Color.blue);
 		roll1.setForeground(Color.yellow);
 		panel.add(roll1);
 		
-		rollboth = new JButton("Roll Both Dice");
+		rollboth = new JButton(rollBoth);
+		rollboth.addActionListener(this);
 		rollboth.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		rollboth.setBackground(Color.darkGray);
 		rollboth.setForeground(Color.magenta);
@@ -57,54 +66,59 @@ public class Roll implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
-		String eventName = ae.getActionCommand();
 		Random random = new Random();
+		String eventName = ae.getActionCommand();
 		int face0 = -1;
 		int face1 = -1;
-		if(eventName.equals("Roll First Die"))
+		switch (eventName)
 		{
-			face0 = random.nextInt(6) + 1;
-			setDie0(face0);
+			case rollFirst:
+				face0 = random.nextInt(6) + 1;
+				setDie0(face0);
+				break;
+			case rollSecond:
+				face1 = random.nextInt(6) + 1;
+				setDie1(face1);
+				break;
+			case rollBoth:
+				face0 = random.nextInt(6) + 1;
+				setDie0(face0);
+				face1 = random.nextInt(6) + 1;
+				setDie1(face1);
+				break;
+			default:
+				break;
 		}
-		else if(eventName.equals("Roll Second Die"))
-		{
-			face1 = random.nextInt(6) + 1;
-			setDie1(face1);
-		}
-		else if(eventName.equals("Roll Both Dice"))
-		{
-			face0 = random.nextInt(6) + 1;
-			setDie0(face0);
-			face1 = random.nextInt(6) + 1;
-			setDie1(face1);
-		}
-		else
-		{
-			throw new UnsupportedOperationException("WHAT ARE YOU DOING?");
-		}
+		
+		int i = random.nextInt(backgrounds.length - 1);
+		Color nextColor = backgrounds[i];
+		panel.setBackground(nextColor);
 	}
 	
 	private void setDie0(int face)
 	{
 		switch(face)
 			{
-				case '1':
+				case 1:
 					die0.setIcon(new ImageIcon("die1.gif"));
 					break;
-				case '2':
+				case 2:
 					die0.setIcon(new ImageIcon("die2.gif"));
 					break;
-				case '3':
+				case 3:
 					die0.setIcon(new ImageIcon("die3.gif"));
 					break;
-				case '4':
+				case 4:
 					die0.setIcon(new ImageIcon("die4.gif"));
 					break;
-				case '5':
+				case 5:
 					die0.setIcon(new ImageIcon("die5.gif"));
 					break;
+				case 6:
+					die0.setIcon(new ImageIcon("die6.gif"));
+					break;
 				default:
-					throw new UnsupportedOperationException("WHAT ARE YOU DOING?");
+					break;
 			}
 	}
 	
@@ -112,29 +126,31 @@ public class Roll implements ActionListener
 	{
 		switch(face)
 			{
-				case '1':
+				case 1:
 					die1.setIcon(new ImageIcon("die1.gif"));
 					break;
-				case '2':
+				case 2:
 					die1.setIcon(new ImageIcon("die2.gif"));
 					break;
-				case '3':
+				case 3:
 					die1.setIcon(new ImageIcon("die3.gif"));
 					break;
-				case '4':
+				case 4:
 					die1.setIcon(new ImageIcon("die4.gif"));
 					break;
-				case '5':
+				case 5:
 					die1.setIcon(new ImageIcon("die5.gif"));
 					break;
+				case 6:
+					die1.setIcon(new ImageIcon("die6.gif"));
+					break;
 				default:
-					throw new UnsupportedOperationException("WHAT ARE YOU DOING?");
+					break;
 			}
 	}
 	
 	private static void runRoll()
 	{
-		JFrame.setDefaultLookAndFeelDecorated(false);
 		Roll roll = new Roll();
 	}
 	
