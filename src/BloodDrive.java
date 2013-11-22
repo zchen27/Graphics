@@ -24,11 +24,12 @@ public class BloodDrive
 	BigDecimal blood3;
 	BigDecimal blood4;
 	
-	
 	public BloodDrive()
 	{
 		frame = new JFrame();
 		panel = new JPanel();
+		panel.setLayout(new GridLayout(0, 2));
+		panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
 		
 	}
 }
