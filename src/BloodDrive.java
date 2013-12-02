@@ -6,10 +6,11 @@ import javax.swing.*;
 public class BloodDrive implements ActionListener
 {
 	JFrame frame;
+	JFrame graphFrame;
 	JPanel panel;
 	JPanel graph;
 	JLabel department0 = new JLabel("BALLISTICS AND ROCKETRY");
-	JLabel department1 = new JLabel("MATERIAL SCIENCE");
+	JLabel department1 = new JLabel("MATERIALS ENGINEERING");
 	JLabel department2 = new JLabel("STRUCTURAL SYSTEMS");
 	JLabel department3 = new JLabel("FORTIFICATIONS");
 	JLabel department4 = new JLabel("LOGISTICS");
@@ -25,21 +26,29 @@ public class BloodDrive implements ActionListener
 	BigDecimal blood3;
 	BigDecimal blood4;
 	
-	private class Graph extends JPanel
+	BigDecimal scale;
+	
+	private class GraphPanel extends JPanel
 	{
 		@Override
 		public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
+			
 		}
 	}
 	
 	public BloodDrive()
 	{
 		frame = new JFrame();
+		
+		graphFrame = new JFrame();
+		
 		panel = new JPanel();
 		panel.setLayout(new GridLayout(0, 2));
 		panel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+		
+		graph = new GraphPanel();
 		
 		panel.add(department0);
 		
@@ -75,6 +84,9 @@ public class BloodDrive implements ActionListener
 		text4.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		text4.addActionListener(this);
 		panel.add(text4);
+		
+		frame.add(panel);
+		graphFrame.add(graph);
 	}
 	
 	@Override
